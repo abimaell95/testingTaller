@@ -15,8 +15,7 @@ public class Employee
     //variable de tipo employeeType
     private EmployeeType employeeType;    
 
-    public Employee(float salary, String currency, 
-        float bonusPercentage, EmployeeType employeeType){
+    public Employee(float salary, String currency, float bonusPercentage, EmployeeType employeeType){
         this.salary = salary;
         this.currency = currency;
         this.bonusPercentage = bonusPercentage;
@@ -29,14 +28,18 @@ public class Employee
         Date date = new Date();
         //Obtiene la hora local
         LocalDate localDate;
-        localDate = date.toInstant()
-                .atZone(ZoneId.systemDefault()).toLocalDate();
+        localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         //Obtiene el mes en forma de entero
         int month = localDate.getMonthValue();
         // Si la moneda es USD, se considera todo el salario,
         // caso contrario se resta 5% por cambio de moneda
-        if(currency == "USD"){salario = salary; }
-        else{salario = (float) (salary * 0.95);}
+        if(currency == "USD"){
+        	salario = salary;
+        }
+        else{
+        	salario = (float) (salary * 0.95);
+        }
+        
         switch (employeeType)         
         {
             case Worker:
