@@ -42,6 +42,16 @@ class EmployeeTest {
 
 		assertEquals(resultadoReal, resultadoEsperado, 0.2);
 	}
+	
+//Validando en USD cuando el empleado es un tipo invalido con un margen de error de +-0.2
+	@Test
+	void testCSOtroEmpleadoUSB() {
+		Employee testEmpleado = new Employee(400, "USD", 0.5f, EmployeeType.Other);
+			
+		float resultadoReal = testEmpleado.cs();
+		float resultadoEsperado = 0.0f;
+		assertEquals(resultadoReal, resultadoEsperado, 0.2);
+	}
 
 //Validando en otro tipo de moneda cuando el empleado es un Worker con un margen de error de +-0.2
 		@Test
@@ -76,4 +86,14 @@ class EmployeeTest {
 
 			assertEquals(resultadoReal, resultadoEsperado, 0.2);
 		}
+		
+//Validando en otro tipo de moneda cuando el empleado es un tipo invalido con un margen de error de +-0.2
+				@Test
+				void testCSOtroEmpleado() {
+					Employee testEmpleado = new Employee(400, "EUR", 0.5f, EmployeeType.Other);
+						
+					float resultadoReal = testEmpleado.cs();
+					float resultadoEsperado = 0.0f;
+					assertEquals(resultadoReal, resultadoEsperado, 0.2);
+				}
 }

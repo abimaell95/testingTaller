@@ -1,3 +1,3 @@
 package tallerpruebas;
 
-public enum EmployeeType { Worker, Supervisor, Manager }
+public enum EmployeeType { Worker, Supervisor, Manager, Other}
